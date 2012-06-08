@@ -1,0 +1,9 @@
+'(
+   (id . "<%= @collection.id %>")
+   (name . "<%= @collection.name %>")
+   (contents . (
+     <% @collection.contents.each do |content| %>
+       ((id . "<%= content.id %>") (key . "<%= content.key  %>") (val . "<%= content.val %>"))
+     <% end %>
+     ))
+   )

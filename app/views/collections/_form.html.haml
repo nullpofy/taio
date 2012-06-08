@@ -1,0 +1,28 @@
+= form_for @collection, :html => { :multipart => true } do |f|
+  -if @collection.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@collection.errors.count, "error")} prohibited this collection from being saved:"
+      %ul
+        - @collection.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.check_box :skip_head
+    = f.label :skip_head
+  .field
+    = radio_button_tag :text_or_file_csv, :text, true
+    = label_tag :text_or_file_csv_text
+    #text_or_file_csv_text_field.field
+      = f.label :csv_text_input
+      = f.text_area :csv_text_input
+  .field
+    = radio_button_tag :text_or_file_csv, :file
+    = label_tag :text_or_file_csv_file
+    #text_or_file_csv_file_field.field
+      = f.label :csv_file_input
+      = f.file_field :csv_file_input, disabled:true
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,17 @@
+%h1 Listing collections
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @collections.each do |collection|
+    %tr
+      %td= link_to collection.name, collection_path(collection, format: :json)
+      %td= link_to 'Destroy', collection, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Collection', new_collection_path

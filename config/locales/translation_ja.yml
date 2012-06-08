@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      collection: コレクション
+      content: コンテンツ
+
+    attributes:
+      collection:
+      content:
